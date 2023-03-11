@@ -10,6 +10,7 @@
   --modal-overlay-color: #2e2f42;
   --hero-background-color: #2e2f42;
   --white-color: #ffffff;
+  --black-color: #000000;
 
   --test-border-outline: 0px solid blue;
 }
@@ -264,6 +265,29 @@ a {
 .heroimage-button:focus {
   /* color: var(--white-color); */
   background-color: var(--pressed-state);
+}
+
+/* Modal atributes */
+.modal-button-close {
+  color: var(--black-color);
+  background-color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.modal-button-close:hover {
+  color: var(--white-color);
+  background-color: var(--pressed-state);
+  border-color: var(--pressed-state);
+}
+
+.modal-button-close-svg {
+  fill: currentColor;
 }
 
 /* ----------------Main page (Index) Block2 Preferences---------------- */
