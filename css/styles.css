@@ -150,6 +150,9 @@ a {
   font-weight: 500;
   line-height: 1.5;
   text-decoration: none;
+  transition-property: color;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .topline-adress-box {
@@ -166,10 +169,26 @@ a {
   font-weight: 400;
   line-height: 1.5;
   text-decoration: none;
+  transition-property: color;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navi-link.current {
   color: var(--brand-color);
+  padding: 24px 0;
+  position: relative;
+}
+
+.navi-link.current::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--pressed-state);
+  border-radius: 2px;
 }
 
 .navi-link:hover,
@@ -236,11 +255,14 @@ a {
   text-align: center;
   letter-spacing: 0.04em;
   cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .heroimage-button:hover,
 .heroimage-button:focus {
-  color: var(--white-color);
+  /* color: var(--white-color); */
   background-color: var(--pressed-state);
 }
 
@@ -279,7 +301,10 @@ a {
 }
 
 .pref-item-icon {
-  transition: color 350ms, scale 350ms;
+  /* transition: color 350ms, scale 350ms; */
+  transition-property: color, scale;
+  transition-duration: 350ms, 350ms;
+  transition-delay: cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1);
   fill: currentColor;
 }
 
@@ -399,6 +424,9 @@ a {
   border-radius: 50%;
   background-color: var(--brand-color);
   color: var(--white-color);
+  transition-property: background-color;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-item-icon {
@@ -455,20 +483,20 @@ a {
 
 .customers-icon {
   fill: currentColor;
-  transition: color 350ms, scale 350ms;
+  /* transition: color 350ms, scale 350ms; */
+  transition-property: color, scale;
+  transition-duration: 350ms, 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1),
+    cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customer-icon-link:hover .customers-icon {
   scale: 1.1;
 }
 
-/* .pref-icon-box.customers-icon:is(:hover, :focus) {
-  color: var(--dark-color);
-} */
-
-.customers-icon:is(:hover, :focus) {
+/* .customers-icon:is(:hover, :focus) {
   fill: currentColor;
-}
+} */
 
 /* ----------------Portfolio---------------- */
 
@@ -495,6 +523,9 @@ a {
   line-height: 1.5;
   letter-spacing: 0.04em;
   cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button:hover,
 .button:focus {
@@ -518,6 +549,10 @@ a {
   cursor: pointer;
   border: 1px solid var(--accent-color);
   border-color: transparent;
+  transition-property: background-color, color, box-shadow;
+  transition-duration: 350ms, 350ms, 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1),
+    cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-button:hover,
@@ -526,9 +561,9 @@ a {
   color: var(--white-color);
   background-color: var(--pressed-state);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
+  /* border-radius: 4px;
   border: 1px solid var(--accent-color);
-  border-color: transparent;
+  border-color: transparent; */
 }
 
 .cards-block {
@@ -552,6 +587,10 @@ a {
 .portf-link {
   display: block;
   color: inherit;
+  transition-property: box-shadow, outline-color;
+  transition-duration: 350ms, 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1),
+    cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portf-link:hover {
@@ -560,9 +599,42 @@ a {
 }
 
 .portf-link:focus {
-  outline-color: var(--brand-color);
   box-shadow: 5px 5px 6px rgba(46, 47, 66, 0.16),
     1px 3px 6px rgba(46, 47, 66, 0.16), 1px 3px 1px rgba(46, 47, 66, 0.08);
+  outline-color: var(--brand-color);
+}
+
+.overflowcard {
+  position: relative;
+  overflow: hidden;
+  width: 360px;
+  height: 300px;
+}
+
+.overflowcard::before {
+  position: absolute;
+  padding-top: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
+  content: "4 Stylish and User-Friendly App Design Concepts · Task Manager App · Calorie Tracker App · Exotic Fruit Ecommerce App · Cloud Storage App";
+  color: var(--light-color);
+  line-height: 1.5;
+  width: 360px;
+  height: 300px;
+  background: linear-gradient(
+    0deg,
+    rgba(77, 90, 229, 0.9),
+    rgba(77, 90, 229, 0.9)
+  );
+  transform: translateY(100%);
+
+  transition-property: transform;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overflowcard:hover::before {
+  transform: translateY(0%);
 }
 
 .section-title {
@@ -630,6 +702,9 @@ a {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--white-color);
+  transition-property: background-color;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-item-icon {
